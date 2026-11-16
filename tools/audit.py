@@ -29,15 +29,30 @@ DATA = ROOT / "data"
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
         "meta", "param", "source", "track", "wbr"}
 
-# 개인 식별 정보 패턴은 공개 저장소에 평문으로 남지 않도록 base64 로 인코딩해 둡니다.
-#   echo -n "값" | base64      <- 새로 검사할 패턴을 추가할 때
-PII_ENCODED = [
-    "7KCV7KeE7Jik", "7KeE7Jik", "Smlub1xzKkplb25n", "XGJKSU5PXGI=",
-    "dGhlbG96MzNAZ21haWxcLmNvbQ==", "dGhlbG96NzA1Ng==", "dGhlbG96QG5hdmVyXC5jb20=",
-    "dGhlbG96MzNA", "OTk0MC0/NDkwNw==", "MDEwLT85OTQw", "7KO87JuU64+Z",
-    "67SJ7ISg64+Z", "67SJ64u0", "7ZmU7ISx7Iuc",
+# 개인정보 검사 패턴
+#   정확한 문자열 목록은 저장소에 올리지 않는다. 작업 환경의 .audit_patterns.json(gitignore)에
+#   두고 읽어 쓰며, 그 파일이 없는 곳에서도 이메일·휴대폰 같은 일반 패턴은 항상 검사한다.
+PATTERN_FILE = ROOT / ".audit_patterns.json"
+GENERIC = [
+    r"[A-Za-z0-9._%+-]+@(?:gmail|naver|daum|hanmail|kakao|nate)\.com",
+    r"01\d[-\s]?\d{3,4}[-\s]?\d{4}",
 ]
-PERSONAL = [__import__("base64").b64decode(v).decode("utf-8") for v in PII_ENCODED]
+
+
+def load_patterns() -> list[str]:
+    patterns = list(GENERIC)
+    if PATTERN_FILE.exists():
+        try:
+            data = json.loads(PATTERN_FILE.read_text(encoding="utf-8"))
+            patterns = list(data.get("patterns", [])) + patterns
+        except json.JSONDecodeError as exc:
+            print(f"  (.audit_patterns.json 형식 오류: {exc})")
+    else:
+        print("  참고: .audit_patterns.json 이 없어 일반 패턴만 검사합니다")
+    return patterns
+
+
+PERSONAL = load_patterns()
 
 failures: list[str] = []
 

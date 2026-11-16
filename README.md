@@ -19,6 +19,14 @@ deploy.sh           빌드·감사·커밋·푸시
 docs/               빌드 산출물 (GitHub Pages main /docs)
 ```
 
+## 개인정보 검사 패턴
+
+정확한 검사 문자열은 저장소에 올리지 않습니다. 작업 환경 루트의 `.audit_patterns.json`(gitignore 대상)에 두고 `tools/audit.py`가 읽어 씁니다. 그 파일이 없는 곳에서도 이메일·휴대폰 같은 일반 패턴은 항상 검사합니다.
+
+```json
+{ "patterns": ["검사할 문자열", "정규식도 가능"] }
+```
+
 ## 매일 발행 절차
 
 ```bash
