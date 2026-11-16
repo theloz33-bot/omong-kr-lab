@@ -1,0 +1,94 @@
+{
+  "partner_tag": "AF2611856",
+  "disclosure": "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+  "price_note": "가격은 2026년 11월 16일 조회 기준이며, 쿠팡의 할인 정책과 재고에 따라 달라질 수 있습니다.",
+  "store": {
+    "name": "스토어 오몽",
+    "url": "https://influencers.coupang.com/s/in_ai",
+    "badge": "쿠팡 스토어",
+    "blurb": "생활용품부터 촬영 장비까지, 이 블로그에서 직접 써보고 남긴 물건을 한곳에 모아 두었습니다.",
+    "cta": "스토어 오몽 둘러보기"
+  },
+  "products": {
+    "toilet-paper": {
+      "name": "쿠팡 베이직 3겹 롤화장지 30m × 30롤",
+      "price": "10,890원",
+      "was": "18,900원",
+      "off": "42%",
+      "url": "https://link.coupang.com/a/iIDY9cQLUy",
+      "image": "https://t2a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/515679525385799-751eee87-4f8c-4bcc-9784-4e2403f5c115.jpg",
+      "badge": "생필품",
+      "blurb": "한 번 사두면 석 달 가는 기본템. 단가로 비교할 때 가장 무난한 구성입니다."
+    },
+    "humidifier": {
+      "name": "홈플래닛 초음파 가습기 4L (RD210)",
+      "price": "23,900원",
+      "was": "49,500원",
+      "off": "51%",
+      "url": "https://link.coupang.com/a/iID2lgX3JY",
+      "image": "https://thumbnail4.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/230089310958633-6f99b4c6-56b6-4661-b980-01891952b0d8.jpg",
+      "badge": "겨울 시즌",
+      "blurb": "4L 통이면 원룸·투룸에서 하루 한 번 물 보충으로 버팁니다. 소음이 낮아 밤에도 무리 없습니다."
+    },
+    "water": {
+      "name": "탐사 샘물 무라벨 500ml × 80",
+      "price": "14,990원",
+      "was": "25,960원",
+      "off": "42%",
+      "url": "https://link.coupang.com/a/iID4VMT2w8",
+      "image": "https://t4a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/63230576231320-dba69cdc-3834-48a8-9e87-cf8ad38b6eeb.jpg",
+      "badge": "생필품",
+      "blurb": "개당 187원. 라벨 없는 페트병이라 분리수거할 때 라벨을 떼지 않아도 됩니다."
+    },
+    "coke": {
+      "name": "코카콜라 제로 190ml × 30",
+      "price": "13,390원",
+      "was": "21,600원",
+      "off": "38%",
+      "url": "https://link.coupang.com/a/iID6IpdAiq",
+      "image": "https://thumbnail5.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/79678112711994-993834df-28a8-4839-8127-15735aaed1df.jpg",
+      "badge": "대중 소구",
+      "blurb": "작은 캔이라 냉장고 문칸에 세워 두기 좋습니다. 손님이 왔을 때 가장 안 남는 음료입니다."
+    },
+    "detergent": {
+      "name": "리큐 진한겔 플로랄향 2.1L × 4",
+      "price": "11,520원",
+      "was": "31,500원",
+      "off": "63%",
+      "url": "https://link.coupang.com/a/iID77dDoJM",
+      "image": "https://t5a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/761007085729374-b567084c-ea9c-4308-b1f9-a6abb12ade79.jpg",
+      "badge": "생필품",
+      "blurb": "2.1L 네 통이면 1인 가구 기준 반년치입니다. 무거운 것일수록 로켓배송이 편합니다."
+    },
+    "ringlight": {
+      "name": "코멧 탁상용 링라이트 + 삼각대 (YT-1016)",
+      "price": "19,990원",
+      "was": "24,840원",
+      "off": "19%",
+      "url": "https://link.coupang.com/a/iID9u7mjMy",
+      "image": "https://thumbnail1.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1318146191638-89146dd9-433b-4428-9c1a-52af5f2ca920.jpg",
+      "badge": "촬영 장비",
+      "blurb": "삼각대가 붙어 있어 책상에 세워 두고 쓰기 좋습니다. 밝기와 색온도를 단계별로 조절합니다."
+    },
+    "mic": {
+      "name": "홈플래닛 스마트폰 무선 듀얼 마이크",
+      "price": "21,490원",
+      "was": "52,000원",
+      "off": "58%",
+      "url": "https://link.coupang.com/a/iIEaTUhfXg",
+      "image": "https://t1a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/266859110922144-c22e12d6-4120-4edd-bcad-854dfc508580.jpg",
+      "badge": "촬영 장비",
+      "blurb": "수신기 하나에 마이크 두 개. 혼자 말할 때도, 둘이 마주 앉을 때도 같은 세팅으로 커버됩니다."
+    },
+    "hotpack": {
+      "name": "코멧 포켓형 손난로 핫팩 100g × 30",
+      "price": "8,500원",
+      "was": "11,490원",
+      "off": "26%",
+      "url": "https://link.coupang.com/a/iIEctAQojQ",
+      "image": "https://t3a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/119453090079539-087e1c6e-1952-4850-88fe-651d3b6a038c.jpg",
+      "badge": "겨울 시즌",
+      "blurb": "8천원대라 부담 없이 한 봉지 사두기 좋습니다. 주머니용이라 야외 촬영 대기 시간에 유용합니다."
+    }
+  }
+}
