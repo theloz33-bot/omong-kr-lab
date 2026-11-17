@@ -120,6 +120,7 @@ def main() -> int:
     site = json.loads((DATA / "site.json").read_text(encoding="utf-8"))
     coupang = json.loads((DATA / "coupang.json").read_text(encoding="utf-8"))
     kmong = json.loads((DATA / "kmong.json").read_text(encoding="utf-8"))
+    cpa = json.loads((DATA / "cpa.json").read_text(encoding="utf-8"))
     base_path = site["base_path"]
     disclosure = coupang["disclosure"]
 
@@ -196,6 +197,13 @@ def main() -> int:
                 failures.append(f"{slug}: 크몽 링크에 rel=sponsored 누락")
             if kmong["seller"]["note"] not in text:
                 failures.append(f"{slug}: 크몽 가격·수수료 안내 누락")
+        if "iryan.kr/" in text or any(
+            c.get("url") and c["url"] in text for c in cpa["campaigns"].values()
+        ):
+            if cpa["disclosure"] not in text:
+                failures.append(f"{slug}: 제휴(CPA) 대가성 고지 문구 누락")
+            if 'rel="sponsored nofollow noopener"' not in text:
+                failures.append(f"{slug}: 제휴 링크에 rel=sponsored 누락")
 
     # 필수 파일
     for name in ("sitemap.xml", "rss.xml", "robots.txt", "404.html", ".nojekyll",

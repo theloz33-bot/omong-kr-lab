@@ -10,6 +10,7 @@
     data/site.json     브랜드·URL·메뉴·카테고리
     data/coupang.json  쿠팡 파트너스 상품 링크·이미지·고지 문구
     data/kmong.json    크몽 '오몽이' 서비스 패키지
+    data/cpa.json      제휴(CPA) 상담 캠페인 링크·고지 문구
     posts/*.md         글 (front matter + 본문)
     templates/*.html   페이지 틀 ({{placeholder}} 치환)
     static/            docs/assets/ 로 그대로 복사
@@ -131,6 +132,22 @@ def inline(text: str, ctx: dict) -> str:
         )
 
     text = re.sub(r"\[\[kmong:([a-z0-9-]+)\|([^\]]+)\]\]", kmong_link, text)
+
+    # [[cpa:캠페인키|링크문구]] 제휴 상담 링크. 링크가 아직 없으면 문구만 굵게 남깁니다.
+    def cpa_link(m: re.Match) -> str:
+        key, label = m.group(1), m.group(2)
+        campaign = ctx["cpa"]["campaigns"].get(key)
+        if not campaign:
+            raise SystemExit(f"data/cpa.json 에 없는 캠페인 키: {key}")
+        url = campaign.get("url", "")
+        if not url:
+            return keep(f'<strong>{label}</strong>')
+        return keep(
+            f'<a href="{url}" rel="sponsored nofollow noopener" '
+            f'class="inline-shop">{label}</a>'
+        )
+
+    text = re.sub(r"\[\[cpa:([a-z0-9-]+)\|([^\]]+)\]\]", cpa_link, text)
 
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", text)
@@ -359,7 +376,7 @@ def char_count(text: str) -> int:
     """공백과 마크다운 기호를 뺀 실제 글자 수(한글·영문·숫자 기준)."""
     text = re.sub(r"```.*?```", " ", text, flags=re.S)
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)
-    text = re.sub(r"\[\[(?:cp|kmong):[a-z0-9-]+\|([^\]]+)\]\]", r"\1", text)
+    text = re.sub(r"\[\[(?:cp|kmong|cpa):[a-z0-9-]+\|([^\]]+)\]\]", r"\1", text)
     text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
     text = re.sub(r"^\s*\|?[\s:|-]+\|?\s*$", " ", text, flags=re.M)
     text = re.sub(r"[#*`>|\-\[\]():]", "", text)
@@ -381,9 +398,9 @@ def load_posts(ctx: dict) -> list[dict]:
             raise SystemExit(f"{path.name}: front matter 누락 {missing}")
         if meta["category"] not in categories:
             raise SystemExit(f"{path.name}: site.json 에 없는 카테고리 '{meta['category']}'")
-        if re.search(r"\]\(\[\[(?:cp|kmong):", body):
+        if re.search(r"\]\(\[\[(?:cp|kmong|cpa):", body):
             raise SystemExit(
-                f"{path.name}: 링크 문법 안에 [[cp:…]]/[[kmong:…]] 를 겹쳐 쓸 수 없습니다 — "
+                f"{path.name}: 링크 문법 안에 [[cp:…]]/[[kmong:…]]/[[cpa:…]] 를 겹쳐 쓸 수 없습니다 — "
                 "[[cp:키|문구]] 형태만 쓰세요"
             )
         body_html, toc = md_to_html(body, ctx)
@@ -402,6 +419,7 @@ def load_posts(ctx: dict) -> list[dict]:
                 "tags": meta.get("tags", []),
                 "coupang": meta.get("coupang", []),
                 "kmong": meta.get("kmong", []),
+                "cpa": meta.get("cpa", []),
                 "store": str(meta.get("store", "")).lower() in ("true", "yes", "1"),
                 "featured": str(meta.get("featured", "")).lower() in ("true", "yes", "1"),
                 "html": body_html,
@@ -526,6 +544,53 @@ def kmong_box(post: dict, ctx: dict) -> str:
 </section>"""
 
 
+def cpa_box(post: dict, ctx: dict) -> str:
+    """제휴(CPA) 상담·견적 카드. 링크가 하나도 없으면 상자를 그리지 않습니다."""
+    keys = post["cpa"]
+    if not keys:
+        return ""
+    data = ctx["cpa"]
+    cards = []
+    for key in keys:
+        campaign = data["campaigns"].get(key)
+        if not campaign:
+            raise SystemExit(f"{post['slug']}: data/cpa.json 에 없는 캠페인 키 {key}")
+        points = "".join(f"<li>{p}</li>" for p in campaign.get("points", []) if p)
+        if points:
+            points = f'<ul class="gig-points">{points}</ul>'
+        url = campaign.get("url", "")
+        if url:
+            name_html = (
+                f'<a class="gig-name" href="{url}" rel="sponsored nofollow noopener">'
+                f'{campaign["name"]}</a>'
+            )
+            cta = (
+                f'<a class="gig-cta" href="{url}" rel="sponsored nofollow noopener">'
+                f'{campaign.get("cta", "상담 신청 페이지로")} &rarr;</a>'
+            )
+        else:
+            name_html = f'<span class="gig-name">{campaign["name"]}</span>'
+            cta = ""
+        cards.append(
+            f"""<li class="gig-card">
+  <span class="gig-badge">제휴 · {campaign.get('platform', '')}</span>
+  {name_html}
+  <p class="gig-blurb">{campaign.get('blurb', '')}</p>
+  {points}
+  {cta}
+</li>"""
+        )
+    if not any(data["campaigns"][k].get("url") for k in keys):
+        return ""
+    return f"""
+<section class="gig-block" aria-labelledby="cpa-head">
+  <h2 id="cpa-head" class="block-title">이 글에서 말한 상담·견적 신청</h2>
+  <p class="block-note">{data['note']}</p>
+  <ul class="gig-grid">{''.join(cards)}</ul>
+  <p class="disclosure-mini">{data['disclosure']}</p>
+</section>"""
+
+
 def hire_strip(ctx: dict, variant: str = "post") -> str:
     """제작 의뢰 띠. variant="home"은 홈 상단, "post"는 글 하단."""
     base = ctx["site"]["base_path"]
@@ -599,6 +664,17 @@ def sidebar_html(post: dict, ctx: dict) -> str:
         parts.append(
             f'<div class="side-box"><h2>제작 의뢰</h2><ul class="side-links">{rows}</ul></div>'
         )
+    live_cpa = [k for k in post["cpa"] if ctx["cpa"]["campaigns"].get(k, {}).get("url")]
+    if live_cpa:
+        rows = "".join(
+            f'<li><a href="{ctx["cpa"]["campaigns"][k]["url"]}" rel="sponsored nofollow noopener">'
+            f'{escape(ctx["cpa"]["campaigns"][k]["name"])}</a></li>'
+            for k in live_cpa
+        )
+        parts.append(
+            f'<div class="side-box"><h2>상담·견적 신청</h2><ul class="side-links">{rows}</ul>'
+            f'<p class="disclosure-mini">{ctx["cpa"]["disclosure"]}</p></div>'
+        )
     return "".join(parts)
 
 
@@ -608,7 +684,8 @@ def build() -> int:
     site = load_json(DATA / "site.json")
     coupang = load_json(DATA / "coupang.json")
     kmong = load_json(DATA / "kmong.json")
-    ctx = {"site": site, "coupang": coupang, "kmong": kmong}
+    cpa = load_json(DATA / "cpa.json")
+    ctx = {"site": site, "coupang": coupang, "kmong": kmong, "cpa": cpa}
     posts = load_posts(ctx)
     categories = {c["key"]: c for c in site["categories"]}
 
@@ -692,6 +769,7 @@ def build() -> int:
   </div>
   {coupang_box(post, ctx)}
   {kmong_box(post, ctx)}
+  {cpa_box(post, ctx)}
   {hire_strip(ctx)}
   {related_html}
   <p class="post-foot"><a href="{base}">글 전체 보기</a></p>
