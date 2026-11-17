@@ -526,6 +526,37 @@ def kmong_box(post: dict, ctx: dict) -> str:
 </section>"""
 
 
+def hire_strip(ctx: dict, variant: str = "post") -> str:
+    """제작 의뢰 띠. variant="home"은 홈 상단, "post"는 글 하단."""
+    base = ctx["site"]["base_path"]
+    if variant == "home":
+        eyebrow = "제작 의뢰"
+        title = "롱폼·숏폼·자체 홍보곡, AI로 만들어 드립니다"
+        body = (
+            "유튜브 홍보영상·브랜드 필름 같은 롱폼, 릴스·틱톡·쇼츠 광고 숏폼, "
+            "브랜드에 맞춘 오리지널 홍보곡까지. 숏폼은 3일부터, 롱폼과 홍보곡은 "
+            "조건 확인 후 고정 금액으로 견적드립니다."
+        )
+        label = "패키지와 의뢰 방법"
+    else:
+        eyebrow = "제작 의뢰"
+        title = "이런 영상이 필요하면 맡기실 수 있습니다"
+        body = (
+            "브랜드·스타트업·소상공인 홍보영상(롱폼), 릴스·틱톡·쇼츠 광고(숏폼), "
+            "자체 홍보곡(BGM)까지 AI로 제작합니다. 준비물과 납품 규격, 비용 기준을 "
+            "한 페이지에 정리해 두었습니다."
+        )
+        label = "제작 의뢰 안내 보기"
+    return f"""<section class="hire-strip hire-{variant}">
+  <div class="hire-copy">
+    <span class="hire-eyebrow">{eyebrow}</span>
+    <h2>{title}</h2>
+    <p>{body}</p>
+  </div>
+  <a class="button hire-cta" href="{base}services/">{label} &rarr;</a>
+</section>"""
+
+
 def store_strip(ctx: dict) -> str:
     st = ctx["coupang"]["store"]
     return f"""<section class="store-strip">
@@ -661,6 +692,7 @@ def build() -> int:
   </div>
   {coupang_box(post, ctx)}
   {kmong_box(post, ctx)}
+  {hire_strip(ctx)}
   {related_html}
   <p class="post-foot"><a href="{base}">글 전체 보기</a></p>
 </article>"""
@@ -810,6 +842,7 @@ def build() -> int:
   <h2 class="block-title">지난 글</h2>
   <ul class="cards">{listing}</ul>
 </section>
+{hire_strip(ctx, 'home')}
 {store_strip(ctx)}"""
 
     blog_ld = {

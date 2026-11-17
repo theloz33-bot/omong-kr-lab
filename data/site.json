@@ -10,6 +10,7 @@
   "footer_note": "오몽 라이프 & AI 연구소가 직접 쓰고 발행합니다. 회원가입·댓글·추적 스크립트 없이 정적 파일로만 운영합니다.",
   "nav": [
     { "key": "journal", "label": "글", "path": "" },
+    { "key": "services", "label": "제작 의뢰", "path": "services/" },
     { "key": "about", "label": "소개", "path": "about/" },
     { "key": "disclosure", "label": "제휴·개인정보", "path": "disclosure/" }
   ],
@@ -19,6 +20,7 @@
     { "key": "ai-production", "label": "AI 제작", "desc": "AI 영상·뮤직비디오를 만들고 외주로 맡기는 실무." }
   ],
   "pages": [
+    { "key": "services", "path": "/services/" },
     { "key": "about", "path": "/about/" },
     { "key": "disclosure", "path": "/disclosure/" }
   ]
