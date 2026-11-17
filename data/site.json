@@ -17,7 +17,8 @@
   "categories": [
     { "key": "living", "label": "생활 정보", "desc": "계절 살림, 집 안 환경, 매일 쓰는 물건을 고르는 기준." },
     { "key": "creator", "label": "크리에이터 장비", "desc": "스마트폰 하나로 찍고 편집하는 1인 제작 세팅." },
-    { "key": "ai-production", "label": "AI 제작", "desc": "AI 영상·뮤직비디오를 만들고 외주로 맡기는 실무." }
+    { "key": "ai-production", "label": "AI 제작", "desc": "AI 영상·뮤직비디오를 만들고 외주로 맡기는 실무." },
+    { "key": "webtoon", "label": "시사 4컷", "desc": "매일 한 편, 마스코트 '몽이'로 읽는 오늘의 시사 풍자." }
   ],
   "pages": [
     { "key": "services", "path": "/services/" },

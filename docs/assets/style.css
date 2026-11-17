@@ -187,6 +187,7 @@ details.jump summary {
 }
 .prose blockquote p { margin: 0; }
 .prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.2rem 0; }
+.prose img { display: block; margin: 0 auto 1.5rem; border-radius: 6px; border: 1px solid var(--line); }
 .prose code { font-family: var(--mono); font-size: .86em; background: var(--paper-alt); padding: .12em .38em; border-radius: 3px; }
 .prose pre {
   background: #1c2320; color: #eef2ee; overflow-x: auto;

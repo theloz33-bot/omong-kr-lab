@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>수능장 와이파이 차단, AI 커닝은 정말 막힐까</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/exam-wifi-block-ai-cheating/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/exam-wifi-block-ai-cheating/</guid>
+    <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>수능 전날, 정부는 시험장 공공 와이파이를 끄겠다고 했다. 끄면 사라지는 건 공용 인터넷 한 줄이고, 개인 통신으로 붙는 길은 그대로 남는다.</description>
+  </item>
   <item>
     <title>홍보영상, 롱폼과 숏폼 중 무엇을 먼저 만들어야 할까</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/brand-video-longform-or-shortform-first/</link>

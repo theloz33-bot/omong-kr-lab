@@ -29,6 +29,7 @@ import shutil
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
@@ -775,6 +776,11 @@ def build() -> int:
   <p class="post-foot"><a href="{base}">글 전체 보기</a></p>
 </article>"""
 
+        image_url = post["meta"].get("image", "")
+        if image_url.startswith("/"):
+            origin = f"{urlparse(site['base_url']).scheme}://{urlparse(site['base_url']).netloc}"
+            image_url = origin + image_url
+
         jsonld = {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
@@ -790,10 +796,17 @@ def build() -> int:
             "articleSection": post["category_label"],
             "keywords": ", ".join(post["tags"]),
         }
+        if image_url:
+            jsonld["image"] = image_url
         head_extra = (
             f'<meta property="article:published_time" content="{post["date"]}">\n'
             f'<meta name="author" content="{html.escape(brand, quote=True)}">\n'
-            f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
+            + (
+                f'<meta property="og:image" content="{image_url}">\n'
+                f'<meta name="twitter:image" content="{image_url}">\n'
+                if image_url else ""
+            )
+            + f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
         )
 
         content = article + f'\n<aside class="post-aside">{sidebar_html(post, ctx)}</aside>'
