@@ -343,25 +343,26 @@ ul.side-links a:hover { color: var(--accent); }
 .hire-strip {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1.6rem; flex-wrap: wrap;
-  background: #14352f; color: #e9f2ef;
-  padding: 1.55rem 1.7rem; border-radius: 5px;
+  background: var(--accent-soft); color: var(--ink);
+  border: 1px solid #cfe3dc; border-left: 4px solid var(--accent);
+  padding: 1.5rem 1.7rem; border-radius: 0 5px 5px 0;
   margin-top: 3rem;
 }
-.hire-home { margin-top: 2.8rem; margin-bottom: 1.6rem; }
+.hire-home { margin-top: 2.8rem; margin-bottom: .6rem; }
 .hire-copy { max-width: 38rem; }
 .hire-eyebrow {
-  display: inline-block; font-size: .72rem; font-weight: 700;
-  letter-spacing: .04em; color: #8fcebe; margin-bottom: .45rem;
+  display: inline-block; font-size: .72rem; font-weight: 800;
+  letter-spacing: .04em; color: var(--accent); margin-bottom: .45rem;
 }
 .hire-strip h2 {
   margin: 0 0 .5rem; font-size: 1.28rem; line-height: 1.45;
-  color: #fff; letter-spacing: -.03em; font-weight: 800;
+  color: var(--ink); letter-spacing: -.03em; font-weight: 800;
 }
-.hire-strip p { margin: 0; font-size: .9rem; line-height: 1.75; color: #cfe3dc; }
-.hire-strip .button { flex: none; background: #fff; color: var(--accent); }
-.hire-strip .button:hover { background: #0b2b25; color: #fff; }
+.hire-strip p { margin: 0; font-size: .9rem; line-height: 1.75; color: var(--ink-soft); }
+.hire-strip .button { flex: none; }
+.hire-strip .button:hover { background: var(--ink); color: #fff; }
 
 @media (max-width: 40rem) {
-  .hire-strip { padding: 1.35rem 1.3rem; }
+  .hire-strip { padding: 1.3rem 1.25rem; }
   .hire-strip .button { width: 100%; text-align: center; }
 }
