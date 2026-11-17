@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>자취 고정비 줄이는 생필품 루틴 — 화장지·생수·세제·제로음료 단가로 계산하기</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/essentials-unit-price-routine/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/essentials-unit-price-routine/</guid>
+    <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    <category>생활 정보</category>
+    <description>매달 나가는 생활비는 아껴서 줄이는 게 아니라 한 번 정해서 반복하면 줄어든다. 화장지·생수·세제·제로음료 네 품목을 단가와 재구매 주기로 계산했다.</description>
+  </item>
   <item>
     <title>AI 숏폼·뮤직비디오 외주, 맡기기 전에 확인할 다섯 가지</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/ai-video-outsourcing-checklist/</link>
