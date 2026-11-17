@@ -210,8 +210,10 @@ def md_to_html(body: str, ctx: dict) -> tuple[str, list[dict]]:
 
         # ::: tip 제목 … ::: 박스
         if stripped.startswith(":::"):
-            kind = stripped[3:].strip().split(" ")[0] or "tip"
-            title = stripped[3 + len(kind):].strip()
+            rest = stripped[3:].strip()
+            kind, _, title = rest.partition(" ")
+            kind = kind or "tip"
+            title = title.strip()
             i += 1
             inner: list[str] = []
             while i < len(lines) and not lines[i].strip().startswith(":::"):
@@ -700,6 +702,18 @@ def build() -> int:
     brand = site["brand"]
     year = datetime.now(KST).year
 
+    # AdSense 슬롯: data/site.json 의 adsense_client 가 채워졌을 때만 <head> 에 스크립트를 넣습니다.
+    client = (site.get("adsense_client") or "").strip()
+    if client:
+        if not re.fullmatch(r"ca-pub-\d{16}", client):
+            raise SystemExit(f"adsense_client 값이 형식과 다릅니다: {client!r} (ca-pub-XXXXXXXXXXXXXXXX)")
+        adsense = (
+            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={client}" '
+            'crossorigin="anonymous"></script>'
+        )
+    else:
+        adsense = ""
+
     def page(*, title: str, description: str, canonical: str, content: str,
              current: str = "", og_type: str = "website", head_extra: str = "",
              body_class: str = "") -> str:
@@ -719,6 +733,7 @@ def build() -> int:
                 "content": content,
                 "year": year,
                 "footer_note": site["footer_note"],
+                "adsense": adsense,
                 "head_extra": head_extra,
                 "body_class": body_class,
             },
@@ -1035,6 +1050,7 @@ def build() -> int:
 
     # ---- 리포트
     print(f"빌드 완료 — 글 {len(posts)}편, 카테고리 {len(by_category)}개 → {OUT}")
+    print(f"  AdSense 슬롯: {'켜짐 (' + client + ')' if client else '비어 있음 — 스크립트 미출력'}")
     problems = []
     for post in posts:
         flag = ""

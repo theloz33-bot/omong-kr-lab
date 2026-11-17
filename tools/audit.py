@@ -105,6 +105,10 @@ def resolve(href: str, page: Path, base_path: str) -> Path | None:
             return target
 
     if not path.startswith(base_path):
+        # 같은 도메인의 다른 사이트(루트 허브, 영문 저널)는 이 저장소 밖이므로 외부 링크로 둡니다.
+        if path in ("", "/") or path.startswith(("/about/", "/privacy/", "/contact/",
+                                                "/disclosure/", "/omong-studio-journal/")):
+            return None
         return Path("/outside-site-base")
     rel = path[len(base_path):]
     target = (DOCS / rel).resolve()
@@ -207,9 +211,16 @@ def main() -> int:
 
     # 필수 파일
     for name in ("sitemap.xml", "rss.xml", "robots.txt", "404.html", ".nojekyll",
-                 "about/index.html", "disclosure/index.html"):
+                 "about/index.html", "disclosure/index.html", "privacy/index.html",
+                 "contact/index.html"):
         if not (DOCS / name).exists():
             failures.append(f"필수 산출물 누락: {name}")
+
+    # 광고를 게재하는데 "쿠키를 쓰지 않는다"고 단정하면 방침과 모순됩니다.
+    for pattern in (r"쿠키를\s*쓰지\s*않", r"쿠키가\s*없"):
+        for page in pages:
+            if re.search(pattern, page.read_text(encoding="utf-8")):
+                failures.append(f"{page.relative_to(DOCS)}: 광고와 모순되는 쿠키 단정 문구")
 
     if failures:
         print("AUDIT FAILED")

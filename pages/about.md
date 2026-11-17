@@ -21,7 +21,7 @@ description: "생활 정보와 AI 제작을 직접 해보고 정리하는 블로
 
 이 블로그는 1인 운영입니다. 글은 프로젝트나 계절이 바뀔 때 올라가고, 정해진 발행 주기는 없습니다. 새 글은 [RSS](https://theloz33-bot.github.io/omong-kr-lab/rss.xml)로 받아 볼 수 있습니다.
 
-사이트에는 회원가입도, 댓글도, 추적 스크립트도 없습니다. 정적 파일로만 운영하며, 자세한 내용은 [제휴·개인정보 안내](https://theloz33-bot.github.io/omong-kr-lab/disclosure/)에 적어 두었습니다.
+사이트에는 회원가입도, 댓글도 없습니다. 정적 파일로만 운영하며, 광고와 제휴 링크, 쿠키에 대한 내용은 [개인정보처리방침](https://theloz33-bot.github.io/omong-kr-lab/privacy/)과 [제휴 고지](https://theloz33-bot.github.io/omong-kr-lab/disclosure/)에 나눠 적어 두었습니다. 문의는 [문의 페이지](https://theloz33-bot.github.io/omong-kr-lab/contact/)로 받습니다.
 
 ## 물건과 서비스
 
