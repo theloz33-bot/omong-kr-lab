@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>AI 회사가 143조를 모았다, 내 구독료로</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/ai-ipo-subscription-bill/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/ai-ipo-subscription-bill/</guid>
+    <pubDate>Fri, 20 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>앤트로픽이 나스닥 상장 첫날 사상 최대인 1,073억 달러(약 143조원)를 조달했다. AI로 콘텐츠를 만드는 사람은 매달 구독료를 내고, 그 구독료가 모여 143조가 됐다. 숫자를 뜯어보면 남는 질문은 하나다.</description>
+  </item>
   <item>
     <title>한한령 빗장 풀렸다는데, 내 콘텐츠는 아직 심사 중</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/hanryu-fta-content-gate/</link>
