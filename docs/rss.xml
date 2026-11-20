@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>사과는 29% 내렸는데, 케이크는 15.6% 올랐다</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/cake-price-up-producer-price-down/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/cake-price-up-producer-price-down/</guid>
+    <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>스타벅스가 '부생카'를 11년 만에 700원(15.6%) 올린다. 같은 날 발표된 10월 생산자물가는 0.1% 하락, 사과는 29.2%, 돼지고기는 12.8% 내렸다. 원가는 내려가는데 매대의 가격표만 새로 붙는 이유를 숫자로 짚었다.</description>
+  </item>
   <item>
     <title>AI 회사가 143조를 모았다, 내 구독료로</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/ai-ipo-subscription-bill/</link>
