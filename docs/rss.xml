@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 22 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>집값은 꺾였는데, 전세는 안 꺾였다</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/jeonse-up-sale-price-flat/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/jeonse-up-sale-price-flat/</guid>
+    <pubDate>Sun, 22 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>서울 아파트 매매는 0.03%, 전세는 0.14% 올랐다. 강남구는 매매가 0.30% 빠지는 동안 전세가 0.22% 올랐다. 입주 물량이 반토막 난 시장에서 두 숫자가 반대로 가는 이유를 정리했다.</description>
+  </item>
   <item>
     <title>사과는 29% 내렸는데, 케이크는 15.6% 올랐다</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/cake-price-up-producer-price-down/</link>
