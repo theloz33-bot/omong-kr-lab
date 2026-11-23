@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko</language>
-  <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>4,700을 지킨 건 지수뿐이었다</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/kospi-4700-index-vs-my-account/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/kospi-4700-index-vs-my-account/</guid>
+    <pubDate>Tue, 24 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>코스피는 3.31% 빠진 4,708.54로 마감하며 4,700선을 지켰다. 그 선을 지킨 돈이 어디서 왔는지, 지수 방어와 내 계좌 사이의 거리를 숫자로 정리했다.</description>
+  </item>
   <item>
     <title>96만 원 팔아 63만 원 받았다</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/delivery-app-fee-net-settlement/</link>
