@@ -210,7 +210,7 @@ def main() -> int:
                 failures.append(f"{slug}: 제휴 링크에 rel=sponsored 누락")
 
     # 필수 파일
-    for name in ("sitemap.xml", "rss.xml", "robots.txt", "404.html", ".nojekyll",
+    for name in ("sitemap.xml", "rss.xml", "robots.txt", "llms.txt", "404.html", ".nojekyll",
                  "about/index.html", "disclosure/index.html", "privacy/index.html",
                  "contact/index.html"):
         if not (DOCS / name).exists():

@@ -1,4 +1,23 @@
+# 공개 페이지는 검색 엔진과 AI 도움말이 읽고 인용할 수 있습니다.
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://theloz33-bot.github.io/omong-kr-lab/sitemap.xml

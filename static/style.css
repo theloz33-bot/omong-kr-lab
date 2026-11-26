@@ -146,6 +146,25 @@ ul.entries { list-style: none; padding: 0; margin: 0; }
 .post-head { border-bottom: 1px solid var(--line); padding-bottom: 1.4rem; margin-bottom: 1.6rem; }
 .post-head .dek { font-size: 1.1rem; }
 
+.tldr {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 1rem 1.15rem;
+  margin: 1.1rem 0 0;
+  max-width: var(--measure);
+  border-radius: 0 4px 4px 0;
+}
+.tldr-label {
+  margin: 0 0 .35rem;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--accent);
+}
+.tldr p:last-child { margin: 0; font-size: 1.02rem; line-height: 1.75; color: var(--ink); }
+
+
 details.jump {
   border: 1px solid var(--line); background: var(--card);
   padding: .85rem 1.1rem; margin-bottom: 2rem; border-radius: 4px;

@@ -17,7 +17,7 @@
     pages/*.md         소개·제휴 고지 같은 고정 페이지
 
 출력
-    docs/              홈, 글, 카테고리, sitemap.xml, rss.xml, robots.txt, 404.html
+    docs/              홈, 글, 카테고리, sitemap.xml, rss.xml, robots.txt, llms.txt, 404.html
 """
 
 from __future__ import annotations
@@ -386,6 +386,148 @@ def char_count(text: str) -> int:
     return len(re.sub(r"\s+", "", text))
 
 
+
+AI_CRAWLERS = (
+    "GPTBot",
+    "OAI-SearchBot",
+    "ChatGPT-User",
+    "PerplexityBot",
+    "ClaudeBot",
+    "Google-Extended",
+)
+
+FAQ_SECTION_TITLES = {
+    "faq",
+    "faqs",
+    "q&a",
+    "q and a",
+    "frequently asked questions",
+    "자주 묻는 질문",
+    "자주묻는질문",
+    "자주 묻는 질문들",
+}
+
+
+def strip_md(text: str) -> str:
+    """이미 본문에 있는 짧은 마크다운을 평문으로. 요약을 새로 만들지 않습니다."""
+    text = re.sub(r"\[\[(?:tool|cp|kmong|cpa):[^\]|]+\|([^\]]+)\]\]", r"\1", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"[*`_]+", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def extract_faq(body: str) -> list[dict]:
+    """본문에 이미 있는 질문형 소제목만 Q&A로 모읍니다. 없는 질문·답은 만들지 않습니다."""
+    blocks: list[dict] = []
+    current = None
+    for line in body.replace("\r\n", "\n").split("\n"):
+        match = re.match(r"^(#{2,3})\s+(.+?)\s*$", line)
+        if match:
+            if current:
+                blocks.append(current)
+            current = {"level": len(match.group(1)), "title": match.group(2).strip(), "lines": []}
+        elif current is not None:
+            current["lines"].append(line)
+    if current:
+        blocks.append(current)
+
+    def first_answer(block: dict) -> str:
+        raw = "\n".join(block["lines"]).strip()
+        if not raw:
+            return ""
+        for para in re.split(r"\n\s*\n", raw):
+            chunk = para.strip()
+            if not chunk or chunk in ("---", "***") or chunk.startswith(":::"):
+                continue
+            return strip_md(chunk)
+        return ""
+
+    pairs: list[dict] = []
+    in_faq = False
+    faq_level = None
+    for block in blocks:
+        title = strip_md(block["title"])
+        title_key = re.sub(r"[:：]\s*$", "", title).strip().lower()
+        if title_key in FAQ_SECTION_TITLES:
+            in_faq = True
+            faq_level = block["level"]
+            continue
+        if in_faq and faq_level is not None and block["level"] <= faq_level:
+            in_faq = False
+            faq_level = None
+        is_question = title.endswith("?") or title.endswith("？")
+        if not title or not (is_question or in_faq):
+            continue
+        answer = first_answer(block)
+        if len(answer) >= 8:
+            pairs.append({"question": title, "answer": answer})
+    return pairs
+
+
+def tldr_html(text: str, label: str = "핵심 요약") -> str:
+    return (
+        f'<aside class="tldr" aria-label="{html.escape(label, quote=True)}">'
+        f'<p class="tldr-label">{html.escape(label)}</p>'
+        f"<p>{escape(text)}</p>"
+        f"</aside>"
+    )
+
+
+def robots_txt(sitemap_url: str) -> str:
+    lines = [
+        "# 공개 페이지는 검색 엔진과 AI 도움말이 읽고 인용할 수 있습니다.",
+        "User-agent: *",
+        "Allow: /",
+        "",
+    ]
+    for bot in AI_CRAWLERS:
+        lines.extend([f"User-agent: {bot}", "Allow: /", ""])
+    lines.append(f"Sitemap: {sitemap_url}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def llms_txt(site: dict, posts: list[dict]) -> str:
+    home = site["base_url"].rstrip("/") + "/"
+    brand = site["brand"]
+    lines = [
+        f"# {brand}",
+        "",
+        f"> {site['description']}",
+        "",
+        f"{site.get('about_blurb', '')} 발행 주체는 '{brand}' 브랜드입니다. 인용할 때는 글의 URL을 출처로 밝혀 주세요. 개인 실명·이메일·위치는 게시하지 않습니다.",
+        "",
+        "## 글",
+        "",
+    ]
+    for post in posts:
+        lines.append(f"- [{post['title']}]({post['url']}): {post['excerpt']}")
+    lines += [
+        "",
+        "## 페이지",
+        "",
+        f"- [제작 의뢰]({home}services/)",
+        f"- [소개]({home}about/)",
+        f"- [제휴 고지]({home}disclosure/)",
+        f"- [개인정보처리방침]({home}privacy/)",
+        f"- [문의]({home}contact/)",
+        "",
+        "## 색인",
+        "",
+        f"- [Sitemap]({home}sitemap.xml)",
+        f"- [RSS]({home}rss.xml)",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def organization_ld(site: dict) -> dict:
+    home = site["base_url"].rstrip("/") + "/"
+    return {"@type": "Organization", "name": site["brand"], "url": home}
+
+
+
 # ---------------------------------------------------------------- 조각
 
 def load_posts(ctx: dict) -> list[dict]:
@@ -419,6 +561,8 @@ def load_posts(ctx: dict) -> list[dict]:
                 "category_label": categories[meta["category"]]["label"],
                 "description": meta["description"],
                 "excerpt": meta.get("excerpt", meta["description"]),
+                "summary": (meta.get("summary") or "").strip() or meta.get("excerpt", meta["description"]),
+                "updated": (meta.get("updated") or meta["date"]).strip(),
                 "tags": meta.get("tags", []),
                 "coupang": meta.get("coupang", []),
                 "kmong": meta.get("kmong", []),
@@ -427,6 +571,7 @@ def load_posts(ctx: dict) -> list[dict]:
                 "featured": str(meta.get("featured", "")).lower() in ("true", "yes", "1"),
                 "html": body_html,
                 "toc": toc,
+                "faq": extract_faq(body),
                 "chars": chars,
                 "reading": max(1, round(chars / 450)),
             }
@@ -720,7 +865,7 @@ def build() -> int:
         return render(
             base_html,
             {
-                "lang": site["language"],
+                "lang": site.get("html_lang") or ("ko-KR" if site.get("language", "").startswith("ko") else site.get("language", "ko-KR")),
                 "locale": site["locale"],
                 "brand": brand,
                 "tagline": site["tagline"],
@@ -776,7 +921,7 @@ def build() -> int:
   <header class="post-head">
     <p class="eyebrow">{escape(post['category_label'])}</p>
     <h1>{escape(post['title'])}</h1>
-    <p class="dek">{escape(post['excerpt'])}</p>
+    {tldr_html(post["summary"])}
     <p class="meta"><time datetime="{post['date']}">{fmt_date(post['date'])}</time> · {post['chars']:,}자 · 읽는 데 {post['reading']}분</p>
   </header>
   {toc_html}
@@ -796,32 +941,53 @@ def build() -> int:
             origin = f"{urlparse(site['base_url']).scheme}://{urlparse(site['base_url']).netloc}"
             image_url = origin + image_url
 
+        org = organization_ld(site)
         jsonld = {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": post["title"],
             "description": post["description"],
             "datePublished": post["date"],
-            "dateModified": post["date"],
+            "dateModified": post["updated"],
             "inLanguage": "ko-KR",
             "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-            "author": {"@type": "Organization", "name": brand,
-                       "url": site["base_url"].rstrip("/") + "/"},
-            "publisher": {"@type": "Organization", "name": brand},
+            "author": org,
+            "publisher": org,
             "articleSection": post["category_label"],
             "keywords": ", ".join(post["tags"]),
         }
         if image_url:
             jsonld["image"] = image_url
+        ld_scripts = [jsonld]
+        if post["faq"]:
+            ld_scripts.append(
+                {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": item["question"],
+                            "acceptedAnswer": {"@type": "Answer", "text": item["answer"]},
+                        }
+                        for item in post["faq"]
+                    ],
+                }
+            )
+        ld_html = "\n".join(
+            f'<script type="application/ld+json">{json.dumps(block, ensure_ascii=False)}</script>'
+            for block in ld_scripts
+        )
         head_extra = (
             f'<meta property="article:published_time" content="{post["date"]}">\n'
+            f'<meta property="article:modified_time" content="{post["updated"]}">\n'
             f'<meta name="author" content="{html.escape(brand, quote=True)}">\n'
             + (
                 f'<meta property="og:image" content="{image_url}">\n'
                 f'<meta name="twitter:image" content="{image_url}">\n'
                 if image_url else ""
             )
-            + f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
+            + ld_html
         )
 
         content = article + f'\n<aside class="post-aside">{sidebar_html(post, ctx)}</aside>'
@@ -951,17 +1117,41 @@ def build() -> int:
 {hire_strip(ctx, 'home')}
 {store_strip(ctx)}"""
 
-    blog_ld = {
+    home_url = site["base_url"].rstrip("/") + "/"
+    org = organization_ld(site)
+    org["@id"] = home_url + "#organization"
+    home_ld = {
         "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": brand,
-        "description": site["description"],
-        "url": site["base_url"].rstrip("/") + "/",
-        "inLanguage": "ko-KR",
-        "blogPost": [
-            {"@type": "BlogPosting", "headline": p["title"],
-             "datePublished": p["date"], "url": p["url"]}
-            for p in posts
+        "@graph": [
+            org,
+            {
+                "@type": "WebSite",
+                "@id": home_url + "#website",
+                "name": brand,
+                "description": site["description"],
+                "url": home_url,
+                "inLanguage": "ko-KR",
+                "publisher": {"@id": org["@id"]},
+            },
+            {
+                "@type": "Blog",
+                "@id": home_url + "#blog",
+                "name": brand,
+                "description": site["description"],
+                "url": home_url,
+                "inLanguage": "ko-KR",
+                "publisher": {"@id": org["@id"]},
+                "blogPost": [
+                    {
+                        "@type": "BlogPosting",
+                        "headline": p["title"],
+                        "datePublished": p["date"],
+                        "dateModified": p["updated"],
+                        "url": p["url"],
+                    }
+                    for p in posts
+                ],
+            },
         ],
     }
     write(
@@ -969,10 +1159,10 @@ def build() -> int:
         page(
             title=f"{brand} — {site['tagline']}",
             description=site["description"],
-            canonical=site["base_url"].rstrip("/") + "/",
+            canonical=home_url,
             content=index_content,
             current="journal",
-            head_extra=f'<script type="application/ld+json">{json.dumps(blog_ld, ensure_ascii=False)}</script>',
+            head_extra=f'<script type="application/ld+json">{json.dumps(home_ld, ensure_ascii=False)}</script>',
             body_class="layout-home",
         ),
     )
@@ -1000,7 +1190,7 @@ def build() -> int:
   <link>{site['base_url'].rstrip('/')}/</link>
   <atom:link href="{site['base_url'].rstrip('/')}/rss.xml" rel="self" type="application/rss+xml"/>
   <description>{escape(site['description'])}</description>
-  <language>ko</language>
+  <language>ko-KR</language>
   <lastBuildDate>{rfc822(last)}</lastBuildDate>
 {items}</channel>
 </rss>
@@ -1009,7 +1199,7 @@ def build() -> int:
 
     urls = [
         ("", last),
-        *[(f"posts/{p['slug']}/", p["date"]) for p in posts],
+        *[(f"posts/{p['slug']}/", p["updated"]) for p in posts],
         *[(f"category/{key}/", max(i["date"] for i in items_))
           for key, items_ in by_category.items()],
         *[(f"{spec['path'].strip('/')}/", last)
@@ -1027,7 +1217,9 @@ def build() -> int:
 """,
     )
 
-    write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {site['base_url'].rstrip('/')}/sitemap.xml\n")
+    sitemap_url = site["base_url"].rstrip("/") + "/sitemap.xml"
+    write("robots.txt", robots_txt(sitemap_url))
+    write("llms.txt", llms_txt(site, posts))
 
     write(
         "404.html",

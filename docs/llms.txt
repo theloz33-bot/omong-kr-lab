@@ -1,0 +1,46 @@
+# 오몽 라이프 & AI 연구소
+
+> 겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.
+
+생활 정보와 AI 제작을 같은 자리에 놓고 씁니다. 가습기 한 대를 고르는 기준, 스마트폰 촬영에서 빛과 소리를 잡는 순서, AI 영상 외주를 맡길 때 견적서에서 확인해야 하는 다섯 줄. 실제로 겪은 것만 남기고, 숫자와 기준을 함께 적습니다. 발행 주체는 '오몽 라이프 & AI 연구소' 브랜드입니다. 인용할 때는 글의 URL을 출처로 밝혀 주세요. 개인 실명·이메일·위치는 게시하지 않습니다.
+
+## 글
+
+- [햇볕이 23% 빠지자, 상추값이 121% 올랐다](https://theloz33-bot.github.io/omong-kr-lab/posts/lettuce-price-sunlight-deficit/): 지난 한 달 일조시간은 평년보다 23% 부족했다. 그 사이 청상추 도매가는 121% 뛰었고, 소매 시금치는 11월 상순보다 30% 올랐다. 고점은 지났지만 여전히 평년보다 높은 값, 숫자로 정리했다.
+- [전기장판·온수매트, 온도보다 '접힘과 시간'부터 — 저온화상 없이 쓰는 겨울 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-electric-blanket-safety/): 전기장판 사고는 뜨거워서보다 오래 닿아 있거나, 접힌 채 쓰거나, 낡은 선을 그대로 써서 생기는 경우가 많다. 꺼내기 전 점검부터 잠잘 때 설정, 보관까지 순서대로 정리했다.
+- [경기가 너무 좋아서, 이자가 오릅니다](https://theloz33-bot.github.io/omong-kr-lab/posts/bok-rate-hike-boom-interest-bill/): 수출은 1조달러를 넘었고 소비심리는 두 달째 내려갔다. 26일 금통위를 앞두고 기준금리 3.00%→3.25% 인상 전망이 나온다. 호황의 온기와 내 대출 이자 사이의 거리를 숫자로 정리했다.
+- [겨울 정전기, 손끝보다 '습도와 옷 소재'부터 — 덜 튀게 만드는 생활 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-static-electricity-humidity-fabric/): 문고리만 잡아도 따끔하고 니트를 벗을 때마다 머리가 선다면, 손을 탓하기 전에 실내 습도와 겹쳐 입은 옷의 조합부터 본다. 정전기가 쌓이는 이유와 덜 튀게 만드는 순서를 정리했다.
+- [4,700을 지킨 건 지수뿐이었다](https://theloz33-bot.github.io/omong-kr-lab/posts/kospi-4700-index-vs-my-account/): 코스피는 3.31% 빠진 4,708.54로 마감하며 4,700선을 지켰다. 그 선을 지킨 돈이 어디서 왔는지, 지수 방어와 내 계좌 사이의 거리를 숫자로 정리했다.
+- [겨울 결로·곰팡이, 습도보다 '벽 온도'부터 — 이슬점표로 위험 구간 계산하기](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-condensation-mold-dew-point/): 같은 습도 50%라도 어떤 집은 창틀이 젖고 어떤 집은 멀쩡하다. 결로를 가르는 건 공기가 아니라 가장 차가운 벽면의 온도다. 이슬점표로 우리 집 위험 구간을 먼저 계산하는 방법.
+- [96만 원 팔아 63만 원 받았다](https://theloz33-bot.github.io/omong-kr-lab/posts/delivery-app-fee-net-settlement/): 하루 매출 96만6,000원을 올린 한식당의 정산금은 63만3,994원이었다. 34%가 빠져나간 정산서의 항목을 하나씩 뜯어보고, 배달앱 수수료가 사장과 손님 사이에서 어떻게 오가는지 숫자로 정리했다.
+- [겨울철 자동차 배터리 방전, 블랙박스 설정부터 — 12.2V와 주차 3일 계산](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-car-battery-dashcam-drain/): 한파 아침 시동이 안 걸리는 건 그날의 추위 때문이 아니다. 앞선 사흘 밤 주차 녹화가 배터리를 미리 깎아 놓는다. 전압표와 소비전력으로 남은 시간을 계산하고, 설정 네 가지만 바꾸는 방법.
+- [집값은 꺾였는데, 전세는 안 꺾였다](https://theloz33-bot.github.io/omong-kr-lab/posts/jeonse-up-sale-price-flat/): 서울 아파트 매매는 0.03%, 전세는 0.14% 올랐다. 강남구는 매매가 0.30% 빠지는 동안 전세가 0.22% 올랐다. 입주 물량이 반토막 난 시장에서 두 숫자가 반대로 가는 이유를 정리했다.
+- [겨울 수도계량기 동파, 영하 5도부터 위험 — 채우기·틀기·녹이기 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-water-meter-freeze-prevention/): 한파 아침에 물이 안 나오면 대개 계량기가 얼어 있다. 서울시 기준 최저기온 영하 5도면 이미 '관심' 단계고, 채우기·틀기·녹이기 세 동작이면 대부분 막을 수 있다.
+- [사과는 29% 내렸는데, 케이크는 15.6% 올랐다](https://theloz33-bot.github.io/omong-kr-lab/posts/cake-price-up-producer-price-down/): 스타벅스가 '부생카'를 11년 만에 700원(15.6%) 올린다. 같은 날 발표된 10월 생산자물가는 0.1% 하락, 사과는 29.2%, 돼지고기는 12.8% 내렸다. 원가는 내려가는데 매대의 가격표만 새로 붙는 이유를 숫자로 짚었다.
+- [겨울 전기 난방기기, 한 달에 얼마 나올까 — 소비전력표로 먼저 계산하는 법](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-electric-heating-cost-calc/): 전기장판 하나는 한 달 1만 2천원, 같은 기간 전기온풍기는 13만원입니다. 라벨의 W를 kWh로 바꾸고 누진 단계에 넣으면 차이가 어디서 나는지 숫자로 보입니다.
+- [AI 회사가 143조를 모았다, 내 구독료로](https://theloz33-bot.github.io/omong-kr-lab/posts/ai-ipo-subscription-bill/): 앤트로픽이 나스닥 상장 첫날 사상 최대인 1,073억 달러(약 143조원)를 조달했다. AI로 콘텐츠를 만드는 사람은 매달 구독료를 내고, 그 구독료가 모여 143조가 됐다. 숫자를 뜯어보면 남는 질문은 하나다.
+- [겨울 야외 촬영, 배터리가 먼저 죽는다 — 0도 아래에서 스마트폰 지키는 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-outdoor-shooting-cold-battery/): 영하에서 화면이 꺼지는 건 배터리가 닳아서가 아니라 추워서다. 촬영 전 보온, 촬영 중 컷 길이, 실내에 들어온 뒤 결로까지 순서대로 정리했습니다.
+- [한한령 빗장 풀렸다는데, 내 콘텐츠는 아직 심사 중](https://theloz33-bot.github.io/omong-kr-lab/posts/hanryu-fta-content-gate/): 한중 FTA 서비스·투자 후속협상이 8년 8개월 만에 실질 타결됐다. 영화·게임 최혜국대우, 공동제작 확대까지. 그런데 사전 심사는 사라지지 않았고, 발효까지는 아직 절차가 남았다.
+- [겨울 실내 빨래, 냄새 없이 하루 만에 말리는 순서 — 세제량·탈수·널어 두는 간격](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-indoor-laundry-drying/): 겨울 실내 건조는 시간이 아니라 순서 문제다. 세제를 줄이고, 탈수를 끝까지 하고, 간격을 띄워 널면 같은 방에서도 하루 안에 마른다.
+- [AI로 주 3.7시간 아꼈는데, 생산성은 그대로인 이유](https://theloz33-bot.github.io/omong-kr-lab/posts/ai-saves-hours-productivity-gap/): 한국은행 조사에서 직장인 3명 중 2명이 AI를 쓴다고 답했다. 아낀 시간은 주 3.7시간. 그런데 그 시간의 63%는 다시 일이 되어 돌아왔다.
+- [수능장 와이파이 차단, AI 커닝은 정말 막힐까](https://theloz33-bot.github.io/omong-kr-lab/posts/exam-wifi-block-ai-cheating/): 수능 전날, 정부는 시험장 공공 와이파이를 끄겠다고 했다. 끄면 사라지는 건 공용 인터넷 한 줄이고, 개인 통신으로 붙는 길은 그대로 남는다.
+- [겨울 난방비, 온도보다 '새는 열'부터 — 창문 단열·문풍지·서큘레이터 실전 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-heating-insulation-checklist/): 난방비는 보일러를 몇 도로 두느냐보다 열이 어디로 빠져나가느냐에서 갈린다. 창문, 문틀, 천장에 갇힌 공기 순서로 막고 섞는 방법을 정리했다.
+- [홍보영상, 롱폼과 숏폼 중 무엇을 먼저 만들어야 할까](https://theloz33-bot.github.io/omong-kr-lab/posts/brand-video-longform-or-shortform-first/): 예산이 한정된 브랜드가 가장 먼저 부딪히는 질문입니다. 도달이 목적이면 숏폼, 신뢰가 목적이면 롱폼이 먼저입니다. 순서를 잘못 잡으면 같은 돈으로 두 배를 다시 쓰게 됩니다.
+- [자취 고정비 줄이는 생필품 루틴 — 화장지·생수·세제·제로음료 단가로 계산하기](https://theloz33-bot.github.io/omong-kr-lab/posts/essentials-unit-price-routine/): 매달 나가는 생활비는 아껴서 줄이는 게 아니라 한 번 정해서 반복하면 줄어든다. 화장지·생수·세제·제로음료 네 품목을 단가와 재구매 주기로 계산했다.
+- [이사·입주청소·타이어렌탈·장기렌트, 상담 전에 확인할 것들](https://theloz33-bot.github.io/omong-kr-lab/posts/move-clean-rental-checklist/): 무료 견적이 무료로 끝나지 않는 이유는 대부분 같은 네 가지 항목입니다. 평수, 날짜, 추가 작업, 약정 조건을 먼저 숫자로 만들어 두면 견적이 흔들리지 않습니다.
+- [AI 숏폼·뮤직비디오 외주, 맡기기 전에 확인할 다섯 가지](https://theloz33-bot.github.io/omong-kr-lab/posts/ai-video-outsourcing-checklist/): 같은 'AI 뮤비'라도 결과는 견적서에 적힌 항목에서 갈린다. 음원 권리, 캐릭터 일관성 기준, 납품 규격, 수정 범위, 2차 활용권까지 계약 전에 확인할 다섯 줄.
+- [스마트폰 촬영, 조명과 마이크만 바꿔도 달라지는 것 — 1인 세팅 30분](https://theloz33-bot.github.io/omong-kr-lab/posts/smartphone-light-and-mic-setup/): 카메라를 바꾸는 것보다 빛과 소리를 먼저 잡는 편이 빠르다. 창가 자연광 쓰는 법부터 링라이트 각도, 무선 마이크 음량 기준까지 30분 순서로 정리했다.
+- [겨울철 실내 습도 40~60%, 가습기 고르는 기준과 방한 준비](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-indoor-humidity-humidifier-guide/): 난방을 켜면 방 안 습도는 조용히 30% 아래로 떨어진다. 40~60%를 지키는 방법, 가습기 세 방식의 차이, 핫팩을 쓸 때 지켜야 할 선을 정리했다.
+
+## 페이지
+
+- [제작 의뢰](https://theloz33-bot.github.io/omong-kr-lab/services/)
+- [소개](https://theloz33-bot.github.io/omong-kr-lab/about/)
+- [제휴 고지](https://theloz33-bot.github.io/omong-kr-lab/disclosure/)
+- [개인정보처리방침](https://theloz33-bot.github.io/omong-kr-lab/privacy/)
+- [문의](https://theloz33-bot.github.io/omong-kr-lab/contact/)
+
+## 색인
+
+- [Sitemap](https://theloz33-bot.github.io/omong-kr-lab/sitemap.xml)
+- [RSS](https://theloz33-bot.github.io/omong-kr-lab/rss.xml)
