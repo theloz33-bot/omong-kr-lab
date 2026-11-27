@@ -6,7 +6,15 @@
   <atom:link href="https://theloz33-bot.github.io/omong-kr-lab/rss.xml" rel="self" type="application/rss+xml"/>
   <description>겨울철 습도 관리부터 원룸 촬영 세팅, AI 숏폼 외주 체크리스트까지. 직접 해보고 남은 것만 정리하는 생활·크리에이터 정보 블로그입니다.</description>
   <language>ko-KR</language>
-  <lastBuildDate>Fri, 27 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sat, 28 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>배달지 바꾸는 창구에서 하루 11만 명 주소가 샜다</title>
+    <link>https://theloz33-bot.github.io/omong-kr-lab/posts/epost-delivery-address-leak/</link>
+    <guid isPermaLink="true">https://theloz33-bot.github.io/omong-kr-lab/posts/epost-delivery-address-leak/</guid>
+    <pubDate>Sat, 28 Nov 2026 09:00:00 +0900</pubDate>
+    <category>시사 4컷</category>
+    <description>인터넷우체국의 '수취인 배달장소 변경서비스'가 해외 IP 해킹을 당해 등기우편 수취인의 이름·주소·전화번호가 유출됐다. 분석이 끝난 하루치만 11만3,855명. 우체국이 당부한 건 '사칭 문자를 조심하라'는 한 문장이었다.</description>
+  </item>
   <item>
     <title>정문에서 500m, 치킨이 식는 15분</title>
     <link>https://theloz33-bot.github.io/omong-kr-lab/posts/cheongdam-delivery-walk-ban/</link>
