@@ -7,6 +7,7 @@
 ## 글
 
 - [배달지 바꾸는 창구에서 하루 11만 명 주소가 샜다](https://theloz33-bot.github.io/omong-kr-lab/posts/epost-delivery-address-leak/): 인터넷우체국의 '수취인 배달장소 변경서비스'가 해외 IP 해킹을 당해 등기우편 수취인의 이름·주소·전화번호가 유출됐다. 분석이 끝난 하루치만 11만3,855명. 우체국이 당부한 건 '사칭 문자를 조심하라'는 한 문장이었다.
+- [겨울 환기, 오래 열기보다 '짧게 맞바람'부터 — 추위 덜 타는 환기 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-ventilation-routine/): 겨울 환기는 창을 조금 오래 열어 두는 것보다, 마주 보는 창을 활짝 열어 짧게 바꾸는 쪽이 덜 춥다. 요리·샤워·빨래처럼 습기와 냄새가 생기는 때를 환기 타이밍으로 잡고, 창에 물방울이 맺히면 바로 신호로 보자.
 - [정문에서 500m, 치킨이 식는 15분](https://theloz33-bot.github.io/omong-kr-lab/posts/cheongdam-delivery-walk-ban/): 청담르엘은 4월부터 배달 오토바이의 지상·지하 출입을 막았다. 단지 폭이 500m라 안쪽 동까지 걸어서 왕복 15~20분. 라이더유니온이 12월 1일까지 답을 달라며 공문을 보냈다. 사유지라 법이 개입하지 못하는 갈등을 숫자로 정리했다.
 - [겨울 가습기, 습도보다 '물통 관리'부터 — 매일·주 1회·보관 세척 순서](https://theloz33-bot.github.io/omong-kr-lab/posts/winter-humidifier-cleaning-routine/): 가습기는 켜는 것보다 물을 어떻게 다루느냐가 먼저다. 남은 물 버리고 말리기를 매일, 분해 세척을 주기적으로, 첨가제는 넣지 않기 — 이 세 가지를 순서대로 정리했다.
 - [햇볕이 23% 빠지자, 상추값이 121% 올랐다](https://theloz33-bot.github.io/omong-kr-lab/posts/lettuce-price-sunlight-deficit/): 지난 한 달 일조시간은 평년보다 23% 부족했다. 그 사이 청상추 도매가는 121% 뛰었고, 소매 시금치는 11월 상순보다 30% 올랐다. 고점은 지났지만 여전히 평년보다 높은 값, 숫자로 정리했다.
